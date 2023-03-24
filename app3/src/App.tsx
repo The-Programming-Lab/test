@@ -2,25 +2,45 @@ import { useEffect, useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
-import axios from 'axios';
 
 function App() {
   const [count, setCount] = useState(0)
 
 
+  // useEffect(() => {
+  //     async function fetchData() {
+  //       const result = await axios.get('http://app1-service/')
+  //       console.log(result.data)
+  //     }
+  //     fetchData()
+  // }, [])
   useEffect(() => {
-      async function fetchData() {
-        const result = await axios.get('http://app1-service/')
-        console.log(result.data)
-      }
-      fetchData()
+  fetch("http://app1-service/")
+    .then((res) => res.json())
+    .then((data) => console.log("http://app1-service/" + "\n" + data))
   }, [])
 
   useEffect(() => {
-      fetch("http://app1-service-clusterip/")
-      .then((res) => res.json())
-      .then((data) => console.log("http://app1-service-clusterip/" + "\n" + data.message))
-  }, [])
+  fetch("http://app1-service-clusterip/")
+  .then((res) => res.json())
+  .then((data) => console.log("http://app1-service-clusterip/" + "\n" + data))
+}, [])
+
+  useEffect(() => {
+  fetch("http://10.68.4.158/")
+  .then((res) => res.json())
+  .then((data) => console.log("http://10.68.4.158/" + "\n" + data))
+}, [])
+
+// 34.135.184.100
+useEffect(() => {
+  fetch("http://34.135.184.100/")
+  .then((res) => res.json())
+  .then((data) => console.log("http://34.135.184.100/" + "\n" + data))
+}, [])
+
+// 34.135.184.100
+// 10.68.4.158
 
   return (
     <div className="App">
@@ -32,7 +52,7 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <h1>Test 4</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
