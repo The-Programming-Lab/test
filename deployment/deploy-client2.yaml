@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client2
+  labels:
+    app: client2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: client2
+  template:
+    metadata:
+      labels:
+        app: client2
+    spec:
+      containers:
+      - name: client2
+        image: gcr.io/the-programming-lab-379219/client2:latest
+        ports:
+        - containerPort: 4173
+---
+apiVersion: cloud.google.com/v1
+kind: BackendConfig
+metadata:
+  name: client2-backendconfig
+spec:
+  timeoutSec: 30
+  connectionDraining:
+    drainingTimeoutSec: 300
+  healthCheck:
+    checkIntervalSec: 10
+    timeoutSec: 5
+    unhealthyThreshold: 3
+    healthyThreshold: 2
+    type: HTTP
+    requestPath: /client2/
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: client2-service
+  annotations:
+    cloud.google.com/backend-config: '{"ports": {"http":"client2-backendconfig"}}'
+spec:
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 80
+      targetPort: 4173
+  selector:
+    app: client2

@@ -5,14 +5,6 @@ from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 
 
-@app.get("/")
-def read_root():
-    return {"message": "Hello from api2"}
-
-@app.get("/api2")
-def read_root():
-    return {"message": "Hello from api2"}
-
-@app.get("/api2/test")
-def read_root():
-    return {"message": "Hello from api2/test"}
+@app.get("/{path:path}")
+def read_root(path: str):
+    return {"message": f"Hello from api 2. Accessed via '/{path}'"}

@@ -1,5 +1,5 @@
 # Base image
-FROM node:14-alpine
+FROM node:16.13-alpine
 
 # Set the working directory
 WORKDIR /app
@@ -17,7 +17,7 @@ COPY . .
 RUN npm run build
 
 # Expose the app on port 4173
-EXPOSE 4173
+EXPOSE 3000
 
 # Serve the app
-CMD ["npm", "run", "preview"]
+CMD ["npm", "run", "start"]

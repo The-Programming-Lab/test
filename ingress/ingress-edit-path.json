@@ -1,0 +1,7 @@
+[  
+    {    
+        "op": "replace",    
+        "path": "/spec/rules/0/http/paths/<index-of-existing-path>/backend/service/name",
+        "value": "<app-service-name>"  
+    }
+]
