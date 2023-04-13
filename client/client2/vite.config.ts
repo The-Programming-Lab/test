@@ -10,5 +10,5 @@ export default defineConfig({
   plugins: [
     react()
   ],
-  base: '/client2',
+  base: '/user2',
 })

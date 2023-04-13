@@ -8,5 +8,5 @@ export default defineConfig({
     port: 3000,
   },
   plugins: [react()],
-  base: '/client1/'
+  base: '/user1'
 })

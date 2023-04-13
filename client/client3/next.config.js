@@ -14,15 +14,6 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
-  basePath: '/client3',
-  async rewrites() {
-    return [
-      {
-        source: '/',
-        destination: '/client3',
-      }
-    ];
-  },
   api: {
     bodyParser: false,
     externalResolver: true,

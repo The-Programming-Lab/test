@@ -69,14 +69,14 @@ Change `<index-of-existing-path>` in file to index from above example: `0`<br>
 Change `<app-service-name>` in file to the new service name example: `api1-service`<br>
 
 `ingress-edit-path.yaml`<br>
-`kubectl patch ingress main --type json -p "$(ingress-edit-path.json)"`<br>
+`kubectl patch ingress main --type json -p "$(cat ingress-edit-path.json)"`<br>
 
 ## Remove path
 Same as above to get the index of the path<br>
 Change `<index-of-existing-path>` in file to index from above example: `0`<br>
 
 `ingress-remove-path.yaml`<br>
-`kubectl patch ingress main --type json -p "$(ingress-remove-path.json)"`<br>
+`kubectl patch ingress main --type json -p "$(cat ingress-remove-path.json)"`<br>
 
 
 

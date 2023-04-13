@@ -9,7 +9,7 @@ function App() {
 
 
   useEffect(() => {
-    fetch("http://theprogramminglab.com/api1/test")
+    fetch("http://api.theprogramminglab.com/api2/another")
     .then((res) => res.json())
     .then((data) => setData(data.message))
   }, [])
